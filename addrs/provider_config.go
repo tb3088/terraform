@@ -17,6 +17,14 @@ type ProviderConfig struct {
 	Alias string
 }
 
+// NewDefaultProviderConfig returns the address of the default (un-aliased)
+// configuration for the provider with the given type name.
+func NewDefaultProviderConfig(typeName string) ProviderConfig {
+	return ProviderConfig{
+		Type: typeName,
+	}
+}
+
 // Absolute returns an AbsProviderConfig from the receiver and the given module
 // instance address.
 func (pc ProviderConfig) Absolute(module ModuleInstance) AbsProviderConfig {
